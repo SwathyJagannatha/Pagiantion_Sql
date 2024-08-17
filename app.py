@@ -13,6 +13,9 @@ from routes.orderBP import order_blueprint
 from models.employee import Employee
 from routes.employeeBP import employee_blueprint
 
+from models.user import User
+from routes.userBP import user_blueprint
+
 # from limiter import limiter
 from caching import cache
 
@@ -32,6 +35,7 @@ def blueprint_config(app):
     app.register_blueprint(product_blueprint,url_prefix = '/products')
     app.register_blueprint(order_blueprint,url_prefix = '/orders')
     app.register_blueprint(employee_blueprint,url_prefix = '/employees')
+    app.register_blueprint(user_blueprint,url_prefix = '/users')
 
 if __name__ == '__main__':
     app = create_app('DevelopmentConfig')

@@ -69,8 +69,8 @@ def role_required(func): #Finds func based on what function the wrapper is sitti
             return jsonify({"messages":"Token Authorization required"}),400 
           except jwt.InvalidTokenError:
                 return jsonify({"messages":"Invalid Token"}),401
-          if payload['role'] == 'Admin':
-              return func(*args, **kwargs) #Exectomg the function we are wrapping if, the token is validated
+          if payload['role'] == 'admin':
+              return func(*args, **kwargs) #Executing the function we are wrapping if, the token is validated
           else:
              return jsonify({"messages":"Admin Role required"}),401
         else:
